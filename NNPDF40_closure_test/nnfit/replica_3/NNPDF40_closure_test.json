@@ -1,0 +1,95 @@
+{
+  "preprocessing": [
+    {
+      "fl": "sng",
+      "smallx": 1.1101398468017578,
+      "largex": 2.546311616897583,
+      "trainable": false
+    },
+    {
+      "fl": "g",
+      "smallx": 1.0277718305587769,
+      "largex": 7.6203999519348145,
+      "trainable": false
+    },
+    {
+      "fl": "v",
+      "smallx": 0.629936933517456,
+      "largex": 1.9356064796447754,
+      "trainable": false
+    },
+    {
+      "fl": "v3",
+      "smallx": 0.333283394575119,
+      "largex": 3.3923418521881104,
+      "trainable": false
+    },
+    {
+      "fl": "v8",
+      "smallx": 0.6994450688362122,
+      "largex": 1.934838891029358,
+      "trainable": false
+    },
+    {
+      "fl": "t3",
+      "smallx": 0.5940605401992798,
+      "largex": 3.5269341468811035,
+      "trainable": false
+    },
+    {
+      "fl": "t8",
+      "smallx": 0.7572753429412842,
+      "largex": 3.32677960395813,
+      "trainable": false
+    },
+    {
+      "fl": "t15",
+      "smallx": 1.1200087070465088,
+      "largex": 2.2302792072296143,
+      "trainable": false
+    }
+  ],
+  "stop_epoch": 10747,
+  "best_epoch": 3995,
+  "erf_tr": 1.6654819250106812,
+  "erf_vl": 2.2620303630828857,
+  "chi2": 1.0028547048568726,
+  "pos_state": "POS_PASS",
+  "arc_lengths": [
+    1.5441203906464,
+    1.5490893336559322,
+    1.0631296533058137,
+    1.3408187199163129,
+    1.0779516292336138
+  ],
+  "integrability": [
+    0.011296110460534747,
+    0.01129611046053336,
+    0.00010299016776249559,
+    0.10088608972728208,
+    0.021663462277503598
+  ],
+  "timing": {
+    "walltime": {
+      "Total": 458.6489715576172,
+      "start": 0.0,
+      "replica_set": 0.033304452896118164,
+      "replica_fitted": 458.64843344688416,
+      "replica_set_to_replica_fitted": 458.61512899398804
+    },
+    "cputime": {
+      "Total": 940.915262783,
+      "start": 0.0,
+      "replica_set": 0.008853750000000105,
+      "replica_fitted": 940.9147203599999,
+      "replica_set_to_replica_fitted": 940.90586661
+    }
+  },
+  "version": {
+    "keras": "2.10.0",
+    "tensorflow": "2.10.0, mkl=False",
+    "numpy": "1.23.5",
+    "nnpdf": "4.0.6.19+g84a5fae6a",
+    "validphys": "4.0.6.19+g84a5fae6a"
+  }
+}

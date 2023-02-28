@@ -1,0 +1,218 @@
+description: NNPDF4.0 NNLO global, iterated, closure test
+dataset_inputs:
+- dataset: NMCPD
+  frac: 0.5
+- dataset: NMC
+  frac: 0.5
+- dataset: SLACP
+  frac: 0.5
+datacuts:
+  t0pdfset: 201204-mw-001_closure_fakepdf
+  q2min: 3.49
+  w2min: 12.5
+  combocuts: NNPDF31
+  jetptcut_tev: 0
+  jetptcut_lhc: 0
+  wptcut_lhc: 30.0
+  jetycut_tev: 1e+30
+  jetycut_lhc: 1e+30
+  dymasscut_min: 0
+  dymasscut_max: 1e+30
+  jetcfactcut: 1e+30
+theory:
+  theoryid: 53
+trvlseed: 1727532335
+nnseed: 1737785873
+mcseed: 2123509817
+genrep: true
+rngalgo: 0
+seed: 4
+parameters:
+  nodes_per_layer:
+  - 18
+  - 24
+  - 36
+  - 8
+  activation_per_layer:
+  - tanh
+  - sigmoid
+  - sigmoid
+  - linear
+  initializer: glorot_normal
+  optimizer:
+    clipnorm: 100.0
+    learning_rate: 1.0
+    optimizer_name: Adadelta
+  epochs: 45000
+  positivity:
+    initial: 338
+    multiplier:
+  integrability:
+    initial: 10
+    multiplier:
+  stopping_patience: 0.15
+  layer_type: dense
+  dropout: 0.0
+  threshold_chi2: 3.5
+fitting:
+  fitbasis: EVOL
+  basis:
+  - fl: sng
+    pos: false
+    trainable: false
+    mutsize:
+    - 15
+    mutprob:
+    - 0.05
+    smallx:
+    - 1.083
+    - 1.12
+    largex:
+    - 1.468
+    - 3.277
+  - fl: g
+    pos: false
+    trainable: false
+    mutsize:
+    - 15
+    mutprob:
+    - 0.05
+    smallx:
+    - 0.8232
+    - 1.065
+    largex:
+    - 2.263
+    - 7.969
+  - fl: v
+    pos: false
+    trainable: false
+    mutsize:
+    - 15
+    mutprob:
+    - 0.05
+    smallx:
+    - 0.5819
+    - 0.7351
+    largex:
+    - 1.496
+    - 3.975
+  - fl: v3
+    pos: false
+    trainable: false
+    mutsize:
+    - 15
+    mutprob:
+    - 0.05
+    smallx:
+    - -0.01663
+    - 0.5046
+    largex:
+    - 1.748
+    - 3.933
+  - fl: v8
+    pos: false
+    trainable: false
+    mutsize:
+    - 15
+    mutprob:
+    - 0.05
+    smallx:
+    - 0.6181
+    - 0.7835
+    largex:
+    - 1.483
+    - 3.915
+  - fl: t3
+    pos: false
+    trainable: false
+    mutsize:
+    - 15
+    mutprob:
+    - 0.05
+    smallx:
+    - -0.4284
+    - 0.8596
+    largex:
+    - 1.765
+    - 3.921
+  - fl: t8
+    pos: false
+    trainable: false
+    mutsize:
+    - 15
+    mutprob:
+    - 0.05
+    smallx:
+    - 0.7236
+    - 1.0
+    largex:
+    - 1.516
+    - 3.649
+  - fl: t15
+    pos: false
+    trainable: false
+    mutsize:
+    - 15
+    mutprob:
+    - 0.05
+    smallx:
+    - 1.014
+    - 1.137
+    largex:
+    - 1.43
+    - 3.752
+positivity:
+  posdatasets:
+  - dataset: POSF2U
+    maxlambda: 1000000.0
+  - dataset: POSF2DW
+    maxlambda: 1000000.0
+  - dataset: POSF2S
+    maxlambda: 1000000.0
+  - dataset: POSFLL
+    maxlambda: 1000000.0
+  - dataset: POSDYU
+    maxlambda: 10000000000.0
+  - dataset: POSDYD
+    maxlambda: 10000000000.0
+  - dataset: POSDYS
+    maxlambda: 10000000000.0
+  - dataset: POSF2C
+    maxlambda: 1000000.0
+  - dataset: POSXUQ
+    maxlambda: 1000000.0
+  - dataset: POSXUB
+    maxlambda: 1000000.0
+  - dataset: POSXDQ
+    maxlambda: 1000000.0
+  - dataset: POSXDB
+    maxlambda: 1000000.0
+  - dataset: POSXSQ
+    maxlambda: 1000000.0
+  - dataset: POSXSB
+    maxlambda: 1000000.0
+  - dataset: POSXGL
+    maxlambda: 1000000.0
+integrability:
+  integdatasets:
+  - dataset: INTEGXT8
+    maxlambda: 100.0
+  - dataset: INTEGXT3
+    maxlambda: 100.0
+closuretest:
+  filterseed: 3345348918
+  fakedata: true
+  fakepdf: 201204-mw-001_closure_fakepdf
+  errorsize: 1.0
+  fakenoise: true
+  rancutprob: 1.0
+  rancutmethod: 0
+  rancuttrnval: false
+  printpdf4gen: false
+debug: false
+use_cuts: internal
+actions_:
+- datacuts check_t0pdfset
+- theory check_positivity
+- datacuts::theory::closuretest::fitting n3fit_checks_action
+- datacuts::closuretest::theory::fitting filter
