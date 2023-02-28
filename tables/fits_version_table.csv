@@ -1,0 +1,6 @@
+module	230129-ab-baseline-nlo-partialglobal	230129-ab-baseline-nnlo-partialglobal
+keras	2.4.0	2.4.0
+tensorflow	2.4.1, mkl=False	2.4.1, mkl=False
+numpy	1.21.2	1.21.2
+nnpdf	4.0.6.8+gf9f078027	4.0.6.8+gf9f078027
+validphys	4.0.6.8+gf9f078027	4.0.6.8+gf9f078027
